@@ -22,6 +22,9 @@ var released = regexp.MustCompile(`^v[0-9]+\.[0-9]+\.[0-9]+$`)
 func main() {
 	logrus.SetOutput(colorable.NewColorableStdout())
 
+        logrus.Infof("My Custom RKE is running...")
+
+
 	if err := mainErr(); err != nil {
 		logrus.Fatal(err)
 	}
@@ -52,8 +55,8 @@ func mainErr() error {
 		logrus.Warnf("This is not an officially supported version (%s) of RKE. Please download the latest official release at https://github.com/rancher/rke/releases", app.Version)
 		return nil
 	}
-	app.Author = "Rancher Labs, Inc."
-	app.Email = ""
+	app.Author = "CUSTOM RANCHER by 360CloudPlatfroms"
+	app.Email = "oksana.levchenko@360cloudplatforms.com"
 	app.Commands = []cli.Command{
 		cmd.UpCommand(),
 		cmd.RemoveCommand(),

@@ -1,0 +1,2 @@
+FROM rke:release-v1-6
+COPY . /go/src/github.com/rancher/rke/
