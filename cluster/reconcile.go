@@ -36,10 +36,7 @@ func ReconcileCluster(ctx context.Context, kubeCluster, currentCluster *Cluster,
 		kubeCluster.UpdateWorkersOnly = false
 		return nil
 	}
-	if kubeCluster.Annotations["disable-auto-healing"] == "true" {
-        logrus.Infof("Self-healing is disabled for cluster %s", kubeCluster.Name)
-        return nil
-    }
+	
 	// If certificates are not present, this is broken state and should error out
 	if len(currentCluster.Certificates) == 0 {
 		return fmt.Errorf("Certificates are not present in cluster state, recover rkestate file or certificate information in cluster state")
